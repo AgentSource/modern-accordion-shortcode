@@ -4,7 +4,7 @@ Plugin Name: Modern Accordion Shortcode
 Description: A quick and easy shortcode for adding accordions to posts and pages.
 Author: Ryan Adolphson
 Credit: @pbearne
-Version: 0.5
+Version: 0.6
 Author URI: http://ryanadolphson.me
 */
 
