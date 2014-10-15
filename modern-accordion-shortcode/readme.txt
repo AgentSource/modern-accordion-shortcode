@@ -4,7 +4,13 @@ Based on work by: enej, ctlt-dev, ubcdev
 Tags: modern shortcode, accordion
 Requires at least: 3.5
 Tested up to: 4
-Stable tag: 0.5
+Stable tag: 0.6
+
+=== 0.6 ===
+
+*Updated version - removed deprecated functions (thanks @pbearne)
+*Removed auto formatting from WP
+*More to come...
 
 === 0.5 ===
 
