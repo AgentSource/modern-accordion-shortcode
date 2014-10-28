@@ -4,7 +4,7 @@ Plugin Name: Modern Accordion Shortcode
 Description: A quick and easy shortcode for adding accordions to posts and pages.
 Author: Ryan Adolphson
 Credit: @pbearne
-Version: 0.6
+Version: 0.7
 Author URI: http://ryanadolphson.me
 */
 
@@ -52,21 +52,28 @@ class MOD_Accordion_Shortcode
 		global $post;
 
 		$shortcode_atts = shortcode_atts(array(
-			'title' => null,
-			'class' => null,
-			'icontype' => null,
+			'title' 		=> null,
+			'class' 		=> null,
+			'icontype' 		=> null,
+			'alignright'	=> null,
 		), $atts);
 
 		$title 		= array_key_exists( 'title',  $shortcode_atts ) ? $shortcode_atts['title'] :null;
-		$icontype 	= array_key_exists( 'icontype',  $shortcode_atts ) ? $shortcode_atts['icontype'] : null;
 		$class 		= array_key_exists( 'class',  $shortcode_atts ) ? $shortcode_atts['class'] : null;
+		$icontype 	= array_key_exists( 'icontype',  $shortcode_atts ) ? $shortcode_atts['icontype'] : null;
+		$alignright	= array_key_exists( 'alignright',  $shortcode_atts ) ? $shortcode_atts['alignright'] : null;
 
 		ob_start();
 		
 		if ( $title ): ?>
 			<h3 id="<?php echo esc_attr( $title . "-" . self::$shortcode_count ); ?>">
-				<div class="mas-icon mas-<?php echo esc_attr( $icontype ); ?>"></div>
-				<a href="#<?php echo esc_attr( $title . "-" . self::$shortcode_count ); ?>"><?php echo $title; ?> </a>
+				<?php if ( $alignright == 'true' ) : ?>
+					<div class="mas-icon mas-<?php echo esc_attr( $icontype ); ?> icon-right"></div>
+					<a href="#<?php echo esc_attr( $title . "-" . self::$shortcode_count ); ?>"><?php echo $title; ?> </a>
+				<?php else : ?>
+					<div class="mas-icon mas-<?php echo esc_attr( $icontype ); ?>"></div>
+					<a href="#<?php echo esc_attr( $title . "-" . self::$shortcode_count ); ?>"><?php echo $title; ?> </a> 
+				<?php endif; ?>
 			</h3>
 
 			<div class="mas-content <?php echo esc_attr( $class ); ?>">
@@ -74,6 +81,7 @@ class MOD_Accordion_Shortcode
 			</div>
 		<?php elseif ($post->post_title): ?>
 			<h3 id="<?php echo esc_attr( $post->post_title . "-" . self::$shortcode_count ); ?>">
+				<div class="mas-icon mas-<?php echo esc_attr( $icontype ); ?>"></div>
 				<a href="#<?php echo esc_attr( $post->post_title . "-" . self::$shortcode_count ); ?>"><?php echo $post->post_title; ?> </a>
 			</h3>
 
@@ -144,6 +152,7 @@ class MOD_Accordion_Shortcode
 			'fillSpace' => false,
 			'heightStyle' => 'content',
 			'animate' => 500,
+			'icons'	=> false,
 		), $attr);
 		//$query_atts['active'] = (int)$query_atts['active'];
 		$id = "random-accordion-id-" . rand( 0, 1000 );
@@ -191,7 +200,7 @@ class MOD_Accordion_Shortcode
 	
 	
 }
-// Removes automatic formatting from WP — WIP
-//remove_filter( 'the_content', 'wpautop' );
+// Removes automatic formatting from WP
+remove_filter( 'the_content', 'wpautop' );
 // lets play
 MOD_Accordion_Shortcode::init();

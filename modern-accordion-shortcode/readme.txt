@@ -4,7 +4,38 @@ Based on work by: enej, ctlt-dev, ubcdev
 Tags: modern shortcode, accordion
 Requires at least: 3.5
 Tested up to: 4
-Stable tag: 0.6
+Stable tag: 0.7
+
+== Description ==
+
+To make the accordions appear the way you want you need to add your own styling to them
+Lets you add accordion to your post and pages.
+
+By using the following shortcodes
+
+`[accordions clearStyle=false collapsible=true]
+
+    [accordion title="title" icontype="square"] 
+    
+        Stuff goes here
+    
+    [/accordion]
+    [accordion title="title2" icontype="circle"]
+    
+        Here as well
+    
+    [/accordion]
+    
+[/accordions]`
+
+
+For more info check out github - https://github.com/AgentSource/modern-accordion-shortcode
+
+=== 0.7 ===
+
+*Added support for alignment of icon - you can now have the icon float to the left or right
+*fixed issues that would remove WP default formatting
+
 
 === 0.6 ===
 

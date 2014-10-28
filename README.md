@@ -36,6 +36,21 @@ Parernt container which containers the singliar accodion element.
 
 -----------------------------------------------------
 
+
+<strong>alignRight:</strong> boolean
+
+<strong>true</strong> = Will align the icon to the right and the text left
+
+<strong>false</strong> = Will align the icon to the left and the text left
+
+<pre>
+[accordions alignright=true]
+	[accodion][/accordion]
+[/accordions]
+</pre>
+
+-----------------------------------------------------
+
 <strong>collapsible:</strong> boolean
 
 <strong>true</strong> = all accordions can be closed
