@@ -200,7 +200,5 @@ class MOD_Accordion_Shortcode
 	
 	
 }
-// Removes automatic formatting from WP
-remove_filter( 'the_content', 'wpautop' );
 // lets play
 MOD_Accordion_Shortcode::init();
